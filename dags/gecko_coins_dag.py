@@ -5,6 +5,7 @@ import requests
 from airflow.decorators import dag, task
 from airflow.models import Variable
 import boto3
+from sqlalchemy import create_engine
 
 
 
@@ -118,8 +119,29 @@ def cryptocoins_etl():
         response1 = s3.list_buckets()
         print(response1)
 
+    @task()
+    def load_to_db(data: list) -> None:
+
+            conn = Variable.get('DB_CONN')
+            engine = create_engine(conn)
+
+            data = pd.DataFrame(data)
+            data['roi'] = data['roi'].apply(lambda x: json.dumps(x) if isinstance(x, dict) else x)
+
+            data.to_sql(
+                name='gecko_coins',
+                con=engine,
+                if_exists='append',
+                index=False,
+            )
+
+            print(f'Coins loaded: {len(data)}')
+
+
+
     raw = extract()
     clean = transform(raw)
     load_to_s3(clean)
+    load_to_db(clean)
 
 cryptocoins_etl()

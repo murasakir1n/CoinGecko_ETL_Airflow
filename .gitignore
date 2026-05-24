@@ -6,3 +6,6 @@ logs/
 __pycache__/
 *.pyc
 example_data.json
+dbt/target/
+dbt/dbt_packages/
+metabase-data/metabase.db*
