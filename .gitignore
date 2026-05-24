@@ -1,0 +1,8 @@
+.env
+etl.py
+.venv/
+.idea/
+logs/
+__pycache__/
+*.pyc
+example_data.json
