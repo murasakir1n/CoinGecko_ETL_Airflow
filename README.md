@@ -92,9 +92,9 @@ dbt run
 ```
 ## dbt модели
 
-| Модель      | Описание |
-|-------------|-----|
-| top_10_coins_by_price | Топ-10 монет по текущей цене    |
-| top_10_by_fully_deluted_valuation | Топ-10 по fully diluted valuation |
-| top_10_market_capacity | Топ-10 по рыночной капитализации |
-| highest_change_24h |Монеты с наибольшим изменением цены за 24ч|
+| Модель      | Описание                                   |
+|-------------|--------------------------------------------|
+| top_10_coins_by_price | Топ-10 монет по текущей цене               |
+| top_10_by_fully_deluted_valuation | Топ-10 по fully diluted valuation          |
+| top_10_market_capacity | Топ-10 по рыночной капитализации           |
+| highest_change_24h | Монеты с наибольшим изменением цены за 24ч |
