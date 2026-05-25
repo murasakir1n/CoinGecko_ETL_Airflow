@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: top_10_coins_by_price
+    columns:
+      - name: id
+        tests:
+          - not_null
+          - unique
+      - name: current_price
+        tests:
+          - not_null
