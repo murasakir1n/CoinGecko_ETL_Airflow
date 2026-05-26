@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: top_10_by_fully_deluted_valuation
+    columns:
+      - name: id
+        tests:
+          - not_null
+          - unique
+      - name: fully_diluted_valuation
+        tests:
+          - not_null

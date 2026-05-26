@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: top_10_market_capacity
+    columns:
+      - name: id
+        tests:
+          - not_null
+          - unique
+      - name: market_cap
+        tests:
+          - not_null

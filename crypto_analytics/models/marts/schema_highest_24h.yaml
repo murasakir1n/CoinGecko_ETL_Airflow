@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: highest_change_24h
+    columns:
+      - name: id
+        tests:
+          - not_null
+          - unique
+      - name: price_change_24h
+        tests:
+          - not_null
