@@ -112,12 +112,6 @@ def cryptocoins_etl():
         )
         print(f'Loaded {len(data)} coins to S3: {key}')
 
-        print(repr(access_key))
-        print(repr(secret_key))
-        print(repr(bucket))
-
-        response1 = s3.list_buckets()
-        print(response1)
 
     @task()
     def load_to_db(data: list) -> None:
@@ -141,7 +135,6 @@ def cryptocoins_etl():
 
     raw = extract()
     clean = transform(raw)
-    load_to_s3(clean)
-    load_to_db(clean)
+    [load_to_s3(clean), load_to_db(clean)]
 
 cryptocoins_etl()
